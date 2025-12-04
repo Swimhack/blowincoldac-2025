@@ -2065,53 +2065,182 @@ a:hover {
 
 /* Service Area Section */
 .service-area-section {
-    padding: 80px 0;
+    padding: 60px 0;
     background-color: var(--bg-section);
 }
 
 .service-area-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.service-area-list {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    width: 100%;
+}
+
+.service-area-list h3 {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .area-list {
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin: 20px 0;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 0 0 20px 0;
 }
 
 .area-list li {
-    padding: 10px;
+    padding: 12px 16px;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-blue);
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: center;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease;
+}
+
+.area-list li:hover {
+    transform: translateY(-2px);
     background-color: white;
-    border-radius: 6px;
-    border-left: 3px solid var(--primary-blue);
+    box-shadow: var(--shadow-sm);
 }
 
 .area-note {
     font-style: italic;
     color: var(--text-gray);
-    margin-top: 20px;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.9rem;
 }
 
 .service-area-cta {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 32px 24px;
+    border-radius: 12px;
     box-shadow: var(--shadow-md);
     text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-area-cta h3 {
-    color: var(--primary-blue);
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
 }
 
-.service-area-cta .btn-primary,
+.service-area-cta p {
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.service-area-cta .btn-primary {
+    background: white;
+    color: var(--primary-blue);
+    width: 100%;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-area-cta .btn-primary:hover {
+    background: var(--bg-light);
+    transform: translateY(-2px);
+}
+
+.service-area-cta .btn-primary svg {
+    stroke: var(--primary-blue);
+}
+
 .service-area-cta .btn-secondary {
-    margin: 10px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    width: 100%;
+    box-shadow: none;
+}
+
+.service-area-cta .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Desktop Styles for Service Area */
+@media (min-width: 768px) {
+    .service-area-section {
+        padding: 80px 0;
+    }
+
+    .service-area-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: stretch;
+    }
+
+    .service-area-list {
+        padding: 40px;
+        height: 100%;
+    }
+    
+    .service-area-list h3 {
+        text-align: left;
+    }
+
+    .area-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .area-list li {
+        text-align: left;
+        padding-left: 20px;
+    }
+    
+    .area-note {
+        text-align: left;
+    }
+
+    .service-area-cta {
+        padding: 40px;
+        height: 100%;
+        align-items: flex-start;
+        text-align: left;
+        justify-content: center;
+    }
+
+    .service-area-cta h3 {
+        font-size: 2rem;
+    }
+
+    .service-area-cta .btn-primary,
+    .service-area-cta .btn-secondary {
+        width: auto;
+        min-width: 200px;
+        margin-right: 16px;
+        margin-bottom: 0;
+        display: inline-flex;
+    }
+    
+    .service-area-cta .btn-wrapper {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
 }
 
 /* CTA Section */
