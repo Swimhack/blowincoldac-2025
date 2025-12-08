@@ -135,11 +135,23 @@ header {
     gap: 10px;
 }
 
-.logo img {
-    height: 135px;
+.logo img,
+.logo-img {
+    height: 70px;
     width: auto;
-    max-width: 300px;
+    max-width: 220px;
     object-fit: contain;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover .logo-img,
+.logo img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .nav-links {
@@ -524,7 +536,7 @@ footer {
     }
 
     .logo img {
-        height: 90px;
+        height: 105px;
     }
 
     .btn {

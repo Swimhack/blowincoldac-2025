@@ -421,10 +421,12 @@ a:hover {
 }
 
 .logo img {
-    height: 50px;
+    height: 105px;
     width: auto;
-    max-width: 180px;
     object-fit: contain;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 8px;
 }
 
 /* Desktop logo and nav styling */
@@ -434,8 +436,7 @@ a:hover {
     }
 
     .logo img {
-        height: 70px;
-        max-width: 250px;
+        height: 105px;
     }
 }
 
@@ -445,8 +446,7 @@ a:hover {
     }
 
     .logo img {
-        height: 90px;
-        max-width: 350px;
+        height: 105px;
     }
 }
 
