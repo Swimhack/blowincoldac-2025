@@ -4,18 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (toggle && nav) {
         toggle.addEventListener('click', () => {
-            if (nav.style.display === 'flex') {
-                nav.style.display = 'none';
-            } else {
-                nav.style.display = 'flex';
-                nav.style.flexDirection = 'column';
-                nav.style.position = 'absolute';
-                nav.style.top = '70px';
-                nav.style.left = '0';
-                nav.style.width = '100%';
-                nav.style.background = 'rgba(2, 12, 27, 0.95)';
-                nav.style.padding = '20px';
-                nav.style.backdropFilter = 'blur(10px)';
+            nav.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
     }
