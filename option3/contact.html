@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Blowin' Cold AC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">
+                <img src="../images/logo-transparent.png" alt="Blowin' Cold AC" class="logo-img">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="tel:281-647-2653" class="btn btn-phone">281-647-2653</a>
+            <button class="mobile-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero" style="min-height: 50vh; padding-top: 280px;">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Contact <span class="text-gradient">Us</span></h1>
+                <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px;">
+                    Ready to schedule service or have questions? We're here to help!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <!-- Info -->
+                <div class="glass-card">
+                    <h2 style="font-size: 2rem; margin-bottom: 30px;">Information</h2>
+
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--accent); margin-bottom: 10px;">Phone</h3>
+                        <p style="font-size: 1.2rem; color: var(--text-main);">
+                            <a href="tel:281-647-2653">281-647-2653</a>
+                        </p>
+                        <p style="color: var(--text-muted);">Available 7 days a week</p>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--accent); margin-bottom: 10px;">Email</h3>
+                        <p style="color: var(--text-main);">
+                            <a href="mailto:blowincoldac@yahoo.com">blowincoldac@yahoo.com</a>
+                        </p>
+                        <p style="color: var(--text-muted);">We respond within 2 hours</p>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: var(--accent); margin-bottom: 10px;">Location</h3>
+                        <p style="color: var(--text-main);">1023 Park Meadow Dr<br>Katy, TX 77450</p>
+                    </div>
+
+                    <div>
+                        <h3 style="color: var(--accent); margin-bottom: 10px;">Hours</h3>
+                        <ul style="color: var(--text-muted);">
+                            <li>Mon - Fri: 7:00 AM - 8:00 PM</li>
+                            <li>Saturday: 8:00 AM - 6:00 PM</li>
+                            <li>Sunday: By Appointment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="glass-card">
+                    <h2 style="font-size: 2rem; margin-bottom: 30px;">Schedule Service</h2>
+                    <form action="#" method="POST">
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 8px;">Full
+                                Name</label>
+                            <input type="text"
+                                style="width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border); color: #fff; border-radius: 50px;"
+                                required>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 8px;">Phone
+                                Number</label>
+                            <input type="tel"
+                                style="width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border); color: #fff; border-radius: 50px;"
+                                required>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 8px;">Email
+                                Address</label>
+                            <input type="email"
+                                style="width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border); color: #fff; border-radius: 50px;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 8px;">Service
+                                Needed</label>
+                            <select
+                                style="width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border); color: #fff; border-radius: 50px;">
+                                <option>AC Repair</option>
+                                <option>New Installation</option>
+                                <option>Maintenance</option>
+                                <option>Free Estimate</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 8px;">Message</label>
+                            <textarea rows="4"
+                                style="width: 100%; padding: 12px; background: rgba(0,0,0,0.5); border: 1px solid var(--border); color: #fff; border-radius: 24px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Request Service</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <img src="../images/logo-transparent.png" alt="Blowin' Cold AC" class="logo-img"
+                style="margin-bottom: 20px;">
+            <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap;">
+                <a href="index.html" style="color: var(--text-muted);">Home</a>
+                <a href="services.html" style="color: var(--text-muted);">Services</a>
+                <a href="about.html" style="color: var(--text-muted);">About</a>
+                <a href="contact.html" style="color: var(--text-muted);">Contact</a>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+                &copy; 2025 Blowin' Cold AC. 1023 Park Meadow Dr, Katy, TX 77450
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

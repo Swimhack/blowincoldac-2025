@@ -136,7 +136,7 @@ header {
 }
 
 .logo-img {
-    height: 90px;
+    height: 115px;
     width: auto;
     max-width: 280px;
     object-fit: contain;
@@ -178,7 +178,7 @@ header {
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 80px;
+    padding-top: 140px;
     text-align: center;
 }
 
@@ -336,7 +336,7 @@ footer {
         text-align: center;
     }
 
-    .hero-content > div {
+    .hero-content>div {
         justify-content: center;
     }
 
@@ -364,7 +364,7 @@ footer {
         padding: 40px 0;
     }
 
-    footer .container > div {
+    footer .container>div {
         flex-direction: column;
         gap: 15px;
     }

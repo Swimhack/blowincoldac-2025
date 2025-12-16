@@ -144,7 +144,7 @@ header {
 }
 
 .logo-img {
-    height: 90px;
+    height: 115px;
     width: auto;
     max-width: 280px;
     object-fit: contain;
@@ -184,7 +184,7 @@ header {
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 100px;
+    padding-top: 140px;
 }
 
 .hero-bg {
@@ -296,12 +296,12 @@ footer {
         font-size: 3.5rem;
     }
 
-    .services-section > .container > div:first-child {
+    .services-section>.container>div:first-child {
         flex-direction: column;
         gap: 20px;
     }
 
-    .services-section > .container > div:first-child p {
+    .services-section>.container>div:first-child p {
         text-align: left;
     }
 }
@@ -352,7 +352,7 @@ footer {
         text-align: center;
     }
 
-    .hero-content > div {
+    .hero-content>div {
         justify-content: center;
     }
 

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Design Options - Blowin' Cold AC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a25;
+            --text-primary: #ffffff;
+            --text-secondary: #8b8b9e;
+            --accent-cyan: #64ffda;
+            --accent-lime: #ccff00;
+            --accent-violet: #a855f7;
+            --accent-red: #e63946;
+            --gradient-1: linear-gradient(135deg, #64ffda 0%, #00d4aa 100%);
+            --gradient-2: linear-gradient(135deg, #ccff00 0%, #88cc00 100%);
+            --gradient-3: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+            --gradient-main: linear-gradient(135deg, #04356f 0%, #0a5a9c 100%);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Effects */
+        .bg-effects {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-effects::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(100, 255, 218, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(204, 255, 0, 0.02) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, 2%) rotate(1deg); }
+            66% { transform: translate(-1%, 1%) rotate(-1deg); }
+        }
+
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .logo-container img {
+            height: 120px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .header-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #a8b2d1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Design Options Grid */
+        .options-section {
+            padding: 40px 0 80px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent-cyan);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .option-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .option-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .option-card:hover::before {
+            opacity: 1;
+        }
+
+        .option-card.current::before { background: var(--gradient-main); }
+        .option-card.cyan::before { background: var(--gradient-1); }
+        .option-card.lime::before { background: var(--gradient-2); }
+        .option-card.violet::before { background: var(--gradient-3); }
+
+        .option-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        .option-card.current .option-badge {
+            background: rgba(4, 53, 111, 0.3);
+            color: #5b9bd5;
+        }
+
+        .option-card.cyan .option-badge {
+            background: rgba(100, 255, 218, 0.15);
+            color: var(--accent-cyan);
+        }
+
+        .option-card.lime .option-badge {
+            background: rgba(204, 255, 0, 0.15);
+            color: var(--accent-lime);
+        }
+
+        .option-card.violet .option-badge {
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--accent-violet);
+        }
+
+        .option-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .option-description {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .option-pages {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .option-pages li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .option-pages li:last-child {
+            border-bottom: none;
+        }
+
+        .option-pages a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .option-pages a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .option-card.lime .option-pages a:hover { color: var(--accent-lime); }
+        .option-card.violet .option-pages a:hover { color: var(--accent-violet); }
+        .option-card.current .option-pages a:hover { color: #5b9bd5; }
+
+        .page-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .option-card.current .page-icon { background: rgba(4, 53, 111, 0.2); }
+        .option-card.cyan .page-icon { background: rgba(100, 255, 218, 0.1); }
+        .option-card.lime .page-icon { background: rgba(204, 255, 0, 0.1); }
+        .option-card.violet .page-icon { background: rgba(168, 85, 247, 0.1); }
+
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .option-card.current .view-all-btn {
+            background: var(--gradient-main);
+            color: #fff;
+        }
+
+        .option-card.cyan .view-all-btn {
+            background: var(--gradient-1);
+            color: #0a0a0f;
+        }
+
+        .option-card.lime .view-all-btn {
+            background: var(--gradient-2);
+            color: #0a0a0f;
+        }
+
+        .option-card.violet .view-all-btn {
+            background: var(--gradient-3);
+            color: #fff;
+        }
+
+        .view-all-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .arrow-icon {
+            transition: transform 0.2s ease;
+        }
+
+        .view-all-btn:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        /* Info Section */
+        .info-section {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 48px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .info-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .info-text {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--accent-cyan);
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: #fff;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .footer-text a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 0 30px;
+            }
+
+            .logo-container img {
+                height: 90px;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-card {
+                padding: 24px;
+            }
+
+            .info-section {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-effects"></div>
+    <div class="grid-overlay"></div>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="/images/logo-transparent.png" alt="Blowin' Cold AC">
+            </div>
+            <h1 class="header-title">Website Design Options</h1>
+            <p class="header-subtitle">
+                Explore different design directions for the Blowin' Cold AC website. 
+                Each option offers a unique visual style while maintaining the same quality content.
+            </p>
+        </div>
+    </header>
+
+    <main class="options-section">
+        <div class="container">
+            <span class="section-label">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                Choose Your Design
+            </span>
+
+            <div class="options-grid">
+                <!-- Current/Main Site -->
+                <div class="option-card current">
+                    <span class="option-badge">Current Site</span>
+                    <h2 class="option-title">Classic Professional</h2>
+                    <p class="option-description">
+                        The original design with a warm, trustworthy feel. Traditional blue color scheme with full navigation and hero sections.
+                    </p>
+                    <ul class="option-pages">
+                        <li>
+                            <a href="/index.html">
+                                <span class="page-icon">🏠</span>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/services.html">
+                                <span class="page-icon">🔧</span>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about.html">
+                                <span class="page-icon">📖</span>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contact.html">
+                                <span class="page-icon">📞</span>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="/index.html" class="view-all-btn">
+                        View Site
+                        <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Option 1 - Electric Cyan -->
+                <div class="option-card cyan">
+                    <span class="option-badge">Option 1</span>
+                    <h2 class="option-title">Electric Cyan</h2>
+                    <p class="option-description">
+                        Modern dark theme with electric cyan accents. Sleek, tech-forward design that conveys premium service.
+                    </p>
+                    <ul class="option-pages">
+                        <li>
+                            <a href="/option1/index.html">
+                                <span class="page-icon">🏠</span>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/option1/services.html">
+                                <span class="page-icon">🔧</span>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/option1/about.html">
+                                <span class="page-icon">📖</span>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/option1/contact.html">
+                                <span class="page-icon">📞</span>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="/option1/" class="view-all-btn">
+                        View Option 1
+                        <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Option 2 - Neon Lime -->
+                <div class="option-card lime">
+                    <span class="option-badge">Option 2</span>
+                    <h2 class="option-title">Neon Lime</h2>
+                    <p class="option-description">
+                        Bold black background with vibrant neon lime accents. High-energy design that stands out and demands attention.
+                    </p>
+                    <ul class="option-pages">
+                        <li>
+                            <a href="/option2/index.html">
+                                <span class="page-icon">🏠</span>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/option2/services.html">
+                                <span class="page-icon">🔧</span>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/option2/about.html">
+                                <span class="page-icon">📖</span>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/option2/contact.html">
+                                <span class="page-icon">📞</span>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="/option2/" class="view-all-btn">
+                        View Option 2
+                        <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Option 3 - Electric Violet -->
+                <div class="option-card violet">
+                    <span class="option-badge">Option 3</span>
+                    <h2 class="option-title">Electric Violet</h2>
+                    <p class="option-description">
+                        Rich purple gradients with a luxurious feel. Sophisticated and modern, perfect for premium positioning.
+                    </p>
+                    <ul class="option-pages">
+                        <li>
+                            <a href="/option3/index.html">
+                                <span class="page-icon">🏠</span>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/option3/services.html">
+                                <span class="page-icon">🔧</span>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/option3/about.html">
+                                <span class="page-icon">📖</span>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/option3/contact.html">
+                                <span class="page-icon">📞</span>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="/option3/" class="view-all-btn">
+                        View Option 3
+                        <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <h2 class="info-title">Have Questions?</h2>
+                <p class="info-text">
+                    Each design option is fully functional and ready to go live. 
+                    Browse through them and let us know which direction resonates best with your brand vision.
+                </p>
+                <a href="tel:281-647-2653" class="contact-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    281-647-2653
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                © 2025 Blowin' Cold AC. Website by <a href="https://stricklandtechnology.com" target="_blank">Strickland Technology</a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+

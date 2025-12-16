@@ -340,46 +340,99 @@ a:hover {
     display: none;
 }
 
-@media (min-width: 768px) {
-    .header-top {
-        display: block;
-        background-color: var(--primary-blue);
-        color: white;
-        padding: 8px 0;
-    }
+/* Header Top Bar - Always visible with buttons */
+.header-top {
+    display: block;
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 8px 0;
+}
 
-    .header-top .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.header-top .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .header-contact {
-        display: flex;
-        gap: 30px;
-        align-items: center;
-        font-size: 14px;
-    }
+/* Header Buttons Container */
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
 
-    .header-contact span {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
+/* Header Button Base Styles */
+.header-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
 
-    .header-contact .icon-phone,
-    .header-contact .icon-location {
-        width: 16px;
-        height: 16px;
-    }
+/* Phone Button - Red */
+.header-btn-phone {
+    background: var(--primary-red);
+    color: white;
+}
 
-    .phone-link {
-        color: white;
-        font-weight: 600;
-    }
+.header-btn-phone:hover {
+    background: #c00606;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(224, 7, 7, 0.4);
+}
 
-    .phone-link:hover {
-        color: #f0f0f0;
+.header-btn-phone svg,
+.header-btn-phone .icon-phone {
+    width: 16px;
+    height: 16px;
+    stroke: white;
+}
+
+/* Schedule Button - White */
+.header-btn-schedule {
+    background: white;
+    color: var(--primary-blue);
+}
+
+.header-btn-schedule:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile responsive header buttons */
+@media (max-width: 767px) {
+    .header-buttons {
+        flex-direction: row;
+        gap: 8px;
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    .header-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .header-btn {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .header-btn svg {
+        width: 14px;
+        height: 14px;
     }
 }
 
@@ -421,12 +474,15 @@ a:hover {
 }
 
 .logo img {
-    height: 105px;
+    height: 135px;
     width: auto;
     object-fit: contain;
-    background: white;
-    padding: 8px 12px;
-    border-radius: 8px;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover img {
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
 }
 
 /* Desktop logo and nav styling */
@@ -436,7 +492,7 @@ a:hover {
     }
 
     .logo img {
-        height: 105px;
+        height: 135px;
     }
 }
 
@@ -446,7 +502,7 @@ a:hover {
     }
 
     .logo img {
-        height: 105px;
+        height: 135px;
     }
 }
 
@@ -1508,11 +1564,22 @@ a:hover {
 
 /* Quick CTA Section */
 .quick-cta-section {
-    padding: 50px 0;
+    padding: 60px 0;
     background: linear-gradient(135deg, #04356f 0%, #027a97 100%);
     color: white;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+}
+
+.quick-cta-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.quick-cta-section .btn-white,
+.quick-cta-section .btn-primary {
+    position: relative;
+    z-index: 2;
 }
 
 .quick-cta-section::before {
@@ -1999,21 +2066,55 @@ a:hover {
 
 /* Trusted Brands Section */
 .trusted-brands-section {
-    padding: 80px 0;
+    padding: 60px 0;
     background-color: white;
+}
+
+@media (min-width: 768px) {
+    .trusted-brands-section {
+        padding: 80px 0;
+    }
 }
 
 .brands-content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 50px;
+    grid-template-columns: 1fr;
+    gap: 30px;
     align-items: center;
+}
+
+@media (min-width: 768px) {
+    .brands-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .brands-content {
+        grid-template-columns: 2fr 1fr;
+        gap: 50px;
+    }
 }
 
 .brand-highlights {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 480px) {
+    .brand-highlights {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (min-width: 768px) {
+    .brand-highlights {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
 }
 
 .brand-item {
@@ -2196,7 +2297,7 @@ a:hover {
         padding: 40px;
         height: 100%;
     }
-    
+
     .service-area-list h3 {
         text-align: left;
     }
@@ -2205,12 +2306,12 @@ a:hover {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
-    
+
     .area-list li {
         text-align: left;
         padding-left: 20px;
     }
-    
+
     .area-note {
         text-align: left;
     }
@@ -2235,7 +2336,7 @@ a:hover {
         margin-bottom: 0;
         display: inline-flex;
     }
-    
+
     .service-area-cta .btn-wrapper {
         display: flex;
         gap: 16px;
@@ -2250,7 +2351,7 @@ a:hover {
     color: white;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .cta-section::before {
@@ -2588,6 +2689,36 @@ a:hover {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+/* Responsive Grid Utilities - Mobile First */
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.grid-2-col-center {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.grid-2-col-start {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .grid-2-col,
+    .grid-2-col-center,
+    .grid-2-col-start {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
 }
 
 /* Improved touch targets for mobile */

@@ -51,27 +51,17 @@
     <header class="main-header">
         <div class="header-top">
             <div class="container">
-                <div class="header-contact">
-                    <span class="header-phone">
+                <div class="header-buttons">
+                    <a href="tel:281-647-2653" class="header-btn header-btn-phone">
                         <svg class="icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2">
                             <path
                                 d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                             </path>
                         </svg>
-                        <a href="tel:281-647-2653" class="phone-link">281-647-2653</a>
-                    </span>
-                    <span class="header-address">
-                        <svg class="icon-location" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        1023 Park Meadow Dr, Katy, TX 77450
-                    </span>
-                </div>
-                <div class="header-cta">
-                    <a href="contact.html#schedule" class="btn-primary">Schedule Service</a>
+                        Call Now
+                    </a>
+                    <a href="contact.html#schedule" class="header-btn header-btn-schedule">Schedule Service</a>
                 </div>
             </div>
         </div>
@@ -81,7 +71,8 @@
                     <!-- Logo -->
                     <div class="logo-wrapper">
                         <a href="index.html" class="logo" aria-label="Blowin' Cold AC Homepage">
-                            <img src="/images/logo.png?v=" alt="Blowin' Cold AC Logo" style="height: 105px; width: auto;" id="logo-img">
+                            <img src="/images/logo-transparent.png" alt="Blowin' Cold AC Logo"
+                                style="height: 135px; width: auto; filter: invert(1) brightness(0);" id="logo-img">
                         </a>
                     </div>
 
@@ -229,11 +220,10 @@
     </section>
 
     <!-- Quick CTA Section -->
-    <section class="quick-cta-section"
-        style="background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal)); color: white; padding: 40px 0;">
+    <section class="quick-cta-section">
         <div class="container" style="text-align: center;">
             <h2 style="color: white; margin: 0 0 20px; font-size: 1.75rem;">Need HVAC Service in Katy, TX?</h2>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 10px 0;">
                 <a href="tel:281-647-2653" class="btn-white btn-large"
                     style="display: inline-flex; align-items: center; gap: 10px;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -250,6 +240,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Services Section -->
     <section class="services-section">
@@ -639,8 +630,7 @@
                     <div class="footer-contact">
                         <p>
                             <strong>Blowin' Cold AC</strong><br>
-                            1023 Park Meadow Dr<br>
-                            Katy, TX 77450
+                            Serving Katy, TX & Surrounding Areas
                         </p>
                         <p>
                             <strong>Phone:</strong> <a href="tel:281-647-2653">281-647-2653</a><br>
@@ -648,8 +638,7 @@
                         </p>
                         <p>
                             <strong>Hours:</strong><br>
-                            Mon-Sat: 7AM-8PM<br>
-                            Emergency Service Available<br>
+                            Regular Hours: Mon-Sat 7AM-8PM<br>
                             <strong>Licensed & Insured</strong>
                         </p>
                     </div>
@@ -706,7 +695,7 @@
             const logoImg = document.getElementById('logo-img');
             if (logoImg) {
                 const timestamp = new Date().getTime();
-                logoImg.src = 'images/logo.png?v=' + timestamp;
+                logoImg.src = '/images/logo-transparent.png?v=' + timestamp;
             }
         });
     </script>

@@ -49,53 +49,19 @@
     function setupMobileMenu() {
         if (!elements.mobileMenuToggle || !elements.navMenu) return;
 
-        // Inject header-top content into mobile menu as a compact panel
+        // Remove any existing mobile-menu-extra or mobile-menu-cta elements
+        // (Header buttons are now always visible in header-top bar)
         try {
-            const headerTopContainer = document.querySelector('.header-top .container') || document.querySelector('.header-top');
-            if (headerTopContainer && !elements.navMenu.querySelector('.mobile-menu-extra')) {
-                const extra = document.createElement('li');
-                extra.className = 'mobile-menu-extra';
-                
-                // Clone the contact info properly
-                const headerContact = headerTopContainer.querySelector('.header-contact');
-                if (headerContact) {
-                    const contactDiv = document.createElement('div');
-                    contactDiv.className = 'header-contact';
-                    
-                    // Clone phone section
-                    const phoneSection = headerContact.querySelector('.header-phone');
-                    if (phoneSection) {
-                        const phoneDiv = document.createElement('div');
-                        phoneDiv.className = 'header-phone';
-                        phoneDiv.innerHTML = phoneSection.innerHTML;
-                        contactDiv.appendChild(phoneDiv);
-                    }
-                    
-                    // Clone address section
-                    const addressSection = headerContact.querySelector('.header-address');
-                    if (addressSection) {
-                        const addressDiv = document.createElement('div');
-                        addressDiv.className = 'header-address';
-                        addressDiv.innerHTML = addressSection.innerHTML;
-                        contactDiv.appendChild(addressDiv);
-                    }
-                    
-                    extra.appendChild(contactDiv);
-                }
-
-                // Place it at the top of the mobile menu
-                elements.navMenu.insertBefore(extra, elements.navMenu.firstChild);
-                
-                // Add CTA button at the bottom
-                if (!elements.navMenu.querySelector('.mobile-menu-cta')) {
-                    const ctaLi = document.createElement('li');
-                    ctaLi.className = 'mobile-menu-cta';
-                    ctaLi.innerHTML = '<a href="contact.html#schedule" class="btn-primary">Schedule Service</a>';
-                    elements.navMenu.appendChild(ctaLi);
-                }
+            const existingExtra = elements.navMenu.querySelector('.mobile-menu-extra');
+            if (existingExtra) {
+                existingExtra.remove();
+            }
+            const existingCta = elements.navMenu.querySelector('.mobile-menu-cta');
+            if (existingCta) {
+                existingCta.remove();
             }
         } catch (e) {
-            console.warn('Unable to prepare mobile menu extras:', e);
+            console.warn('Unable to clean mobile menu:', e);
         }
 
         // Debounce function for performance
