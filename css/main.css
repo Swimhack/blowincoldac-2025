@@ -936,14 +936,15 @@ a:hover {
 .hero-section {
     position: relative;
     min-height: 100vh;
-    margin-top: 135px; /* header-top + nav bar height for mobile */
+    margin-top: 0; /* No margin - starts right after fixed header */
+    padding-top: 140px; /* Padding to account for fixed header height on mobile */
     overflow: hidden;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 @media (min-width: 768px) {
     .hero-section {
-        margin-top: 145px; /* header-top + nav bar height for desktop */
+        padding-top: 150px; /* Account for header height on desktop */
     }
 }
 
