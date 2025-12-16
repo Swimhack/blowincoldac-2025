@@ -335,11 +335,6 @@ a:hover {
     transform: translateY(-1px);
 }
 
-/* Hide header-top on mobile - content shown in mobile menu */
-.header-top {
-    display: none;
-}
-
 /* Header Top Bar - Always visible with buttons */
 .header-top {
     display: block;
@@ -941,14 +936,14 @@ a:hover {
 .hero-section {
     position: relative;
     min-height: 100vh;
-    margin-top: 70px;
+    margin-top: 120px; /* header-top + nav bar height for mobile */
     overflow: hidden;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 @media (min-width: 768px) {
     .hero-section {
-        margin-top: 110px;
+        margin-top: 130px; /* header-top + nav bar height for desktop */
     }
 }
 
