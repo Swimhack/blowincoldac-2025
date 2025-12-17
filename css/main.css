@@ -362,44 +362,52 @@ a:hover {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 25px;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 700;
+    font-size: 0.95rem;
     text-decoration: none;
     transition: all 0.3s ease;
     white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Phone Button - Red */
+/* Phone Button - Bright Yellow/Gold for maximum visibility */
 .header-btn-phone {
-    background: var(--primary-red);
-    color: white;
+    background: #FFD700;
+    color: #000;
+    border: 2px solid #FFD700;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
 }
 
 .header-btn-phone:hover {
-    background: #c00606;
+    background: #FFC000;
+    border-color: #FFC000;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(224, 7, 7, 0.4);
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.6);
 }
 
 .header-btn-phone svg,
 .header-btn-phone .icon-phone {
-    width: 16px;
-    height: 16px;
-    stroke: white;
+    width: 18px;
+    height: 18px;
+    stroke: #000;
 }
 
-/* Schedule Button - White */
+/* Schedule Button - White with border for visibility */
 .header-btn-schedule {
     background: white;
     color: var(--primary-blue);
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
 }
 
 .header-btn-schedule:hover {
-    background: #f0f0f0;
+    background: #f0f8ff;
+    border-color: #f0f8ff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.5);
 }
 
 /* Mobile responsive header buttons */
