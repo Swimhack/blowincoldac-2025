@@ -625,12 +625,14 @@ a:hover {
     background-color: white;
     flex-direction: column;
     padding: 0;
+    padding-bottom: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     max-height: calc(100vh - 70px);
     max-height: calc(100dvh - 70px);
     /* Dynamic viewport height for mobile browsers */
     overflow-y: auto;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     z-index: 9998;
     list-style: none;
     margin: 0;
