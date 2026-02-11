@@ -553,21 +553,32 @@ a:hover {
 
 /* Enhanced X button when menu is open - Best Practices */
 .mobile-menu-toggle.active {
-    background-color: var(--accent-yellow);
+    background: linear-gradient(135deg, var(--accent-yellow) 0%, #FFC107 100%);
     border-radius: 50%;
     padding: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px rgba(255, 193, 7, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .mobile-menu-toggle.active:hover {
-    background-color: #FFC107;
-    transform: rotate(90deg);
+    background: linear-gradient(135deg, #FFC107 0%, #FFD54F 100%);
+    transform: rotate(90deg) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.5), 0 3px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Transform hamburger into X */
-.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+.mobile-menu-toggle.active:active {
+    transform: rotate(90deg) scale(0.95);
+}
+
+/* Transform hamburger into X with improved visibility */
+.mobile-menu-toggle.active .hamburger-line {
     background-color: var(--primary-blue);
+    height: 4px;
+    width: 30px;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(9px, 9px);
 }
 
 .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
@@ -576,8 +587,17 @@ a:hover {
 }
 
 .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
-    background-color: var(--primary-blue);
+    transform: rotate(-45deg) translate(9px, -9px);
+}
+
+/* Pulse animation when menu opens */
+@keyframes pulseX {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.mobile-menu-toggle.active {
+    animation: pulseX 0.4s ease-out;
 }
 
 /* Improved touch target for mobile (minimum 44x44px) */
