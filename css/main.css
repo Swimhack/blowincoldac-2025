@@ -26,6 +26,26 @@
     --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* Logo Watermark Pattern - subtle tiled logo on blue sections */
+.logo-watermark {
+    position: relative;
+}
+
+.logo-watermark::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/logo-watermark.png');
+    background-repeat: repeat;
+    background-size: 200px auto;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 0;
+}
+
 /* Reset & Base Styles */
 * {
     margin: 0;
@@ -963,6 +983,20 @@ a:hover {
     }
 }
 
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/logo-watermark.png');
+    background-repeat: repeat;
+    background-size: 200px auto;
+    pointer-events: none;
+    z-index: 1;
+}
+
 /* Page Hero Sections */
 .page-hero {
     position: relative;
@@ -982,6 +1016,20 @@ a:hover {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, rgba(4, 53, 111, 0.8), rgba(2, 122, 151, 0.7));
+    z-index: 1;
+}
+
+.page-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/logo-watermark.png');
+    background-repeat: repeat;
+    background-size: 200px auto;
+    pointer-events: none;
     z-index: 1;
 }
 
@@ -1026,7 +1074,7 @@ a:hover {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
 }
 
 .snowflake {
