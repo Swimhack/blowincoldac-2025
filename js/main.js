@@ -732,23 +732,27 @@
 
         if (!snowflakeConfig.show) return;
 
+        // Only show snowflakes over the hero section on the homepage
+        const heroSection = document.querySelector('.hero-section');
+        if (!heroSection) return;
+
         const snowflakes = [];
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
-        
-        canvas.style.position = 'fixed';
+
+        canvas.style.position = 'absolute';
         canvas.style.top = '0';
         canvas.style.left = '0';
         canvas.style.width = '100%';
         canvas.style.height = '100%';
         canvas.style.pointerEvents = 'none';
         canvas.style.zIndex = snowflakeConfig.flake_zindex;
-        
-        document.body.appendChild(canvas);
-        
+
+        heroSection.appendChild(canvas);
+
         function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            canvas.width = heroSection.offsetWidth;
+            canvas.height = heroSection.offsetHeight;
         }
         
         function createSnowflake() {
