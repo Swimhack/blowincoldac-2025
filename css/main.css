@@ -2199,8 +2199,8 @@ a:hover {
 
 .brand-logo {
     width: 100%;
-    max-width: 200px;
-    height: 60px;
+    max-width: 100px;
+    height: auto;
     margin: 0 auto;
     display: block;
     filter: grayscale(100%);
