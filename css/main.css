@@ -1493,8 +1493,8 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 40% center;
-    transform: scale(1.05);
+    object-position: 30% 20%;
+    transform: scale(1.0);
     animation: subtleZoom 20s ease-in-out infinite alternate;
     filter: contrast(1.05) saturate(1.1) brightness(1.0);
     image-rendering: -webkit-optimize-contrast;
@@ -1503,11 +1503,11 @@ a:hover {
 
 @keyframes subtleZoom {
     from {
-        transform: scale(1.05);
+        transform: scale(1.0);
     }
 
     to {
-        transform: scale(1.1);
+        transform: scale(1.03);
     }
 }
 
