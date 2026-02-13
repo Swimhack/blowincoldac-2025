@@ -9,6 +9,17 @@
     <title>About Us - Blowin' Cold AC | Katy's HVAC Experts Since 2004</title>
     <link rel="stylesheet" href="/css/main.css?v=20251030-1">
     <link rel="stylesheet" href="/css/responsive.css?v=20251030-1">
+    <style>
+        /* Responsive adjustments for About page */
+        @media (max-width: 768px) {
+            .about-values > .container > div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            .about-local > .container > div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -262,7 +273,8 @@
                 <p class="section-subtitle">The principles that guide everything we do</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <!-- Responsive: on mobile, this will stack to 1 column -->
                 <div class="value-item"
                     style="background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: var(--shadow-sm);">
                     <div
@@ -327,63 +339,51 @@
         </div>
     </section>
 
-    <!-- Service Area Section -->
-    <section class="about-area" style="padding: 80px 0; background-color: white;">
+    <!-- Local Business Highlight Section -->
+    <section class="about-local" style="padding: 80px 0; background-color: white;">
         <div class="container">
-            <div class="grid-2-col-center">
-                <div class="area-content">
-                    <h2>Proudly Serving Katy & West Houston</h2>
-                    <p>Our roots are deep in the Katy community. We understand the unique climate challenges of our area
-                        and the specific needs of homes and businesses throughout West Houston.</p>
-
-                    <p>From the master-planned communities of Cinco Ranch and Cross Creek Ranch to the historic
-                        neighborhoods of old Katy, we've been keeping families comfortable for over two decades.</p>
-
-                    <h3>Primary Service Areas:</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0;">
-                        <div style="padding: 10px; background-color: var(--bg-light); border-radius: 4px;">Katy, TX
+            <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+                <h2 class="section-title">Proudly Serving Katy & West Houston</h2>
+                <p class="section-subtitle">Your local HVAC experts for over 20 years</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px;">
+                <!-- Local Info Box -->
+                <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); border: 2px solid var(--primary-blue);">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                            <span style="font-size: 36px; color: white;">📍</span>
                         </div>
-                        <div style="padding: 10px; background-color: var(--bg-light); border-radius: 4px;">Cinco Ranch
-                        </div>
-                        <div style="padding: 10px; background-color: var(--bg-light); border-radius: 4px;">Fulshear
-                        </div>
-                        <div style="padding: 10px; background-color: var(--bg-light); border-radius: 4px;">Richmond
-                        </div>
-                        <div style="padding: 10px; background-color: var(--bg-light); border-radius: 4px;">Sugar Land
-                        </div>
-                        <div style="padding: 10px; background-color: var(--bg-light); border-radius: 4px;">Missouri City
-                        </div>
-                        <div style="padding: 10px; background-color: var(--bg-light); border-radius: 4px;">Cypress</div>
-                        <div style="padding: 10px; background-color: var(--bg-light); border-radius: 4px;">West Houston
-                        </div>
+                        <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Local to Katy</h3>
                     </div>
-
-                    <p style="font-style: italic; color: var(--text-gray);">Don't see your area? Give us a call - we
-                        often extend our service area for the right customers.</p>
+                    <p style="color: var(--text-gray); text-align: center; line-height: 1.8;">
+                        Our roots are deep in the Katy community. We understand the unique climate challenges of our area and the specific needs of homes throughout West Houston. From Cinco Ranch to old Katy, we've been keeping families comfortable for over two decades.
+                    </p>
                 </div>
-                <div class="area-highlight"
-                    style="background: linear-gradient(135deg, var(--bg-section), white); padding: 40px; border-radius: 10px; border-left: 4px solid var(--primary-blue);">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 20px;">Why Choose Local?</h3>
-                    <ul style="list-style: none; padding: 0;">
+                
+                <!-- Why Choose Local Box -->
+                <div style="background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal)); padding: 40px; border-radius: 15px; color: white; box-shadow: 0 8px 30px rgba(0,0,0,0.15);">
+                    <h3 style="color: white; margin-bottom: 25px; text-align: center;">Why Choose Local?</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="margin-bottom: 15px; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 10px;">✓</span>
-                            Fast response times - we're right in your neighborhood
+                            <span style="color: white; margin-right: 10px; font-size: 20px;">✓</span>
+                            <span style="color: rgba(255,255,255,0.95);">Fast response times - we're in your neighborhood</span>
                         </li>
                         <li style="margin-bottom: 15px; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 10px;">✓</span>
-                            We understand local climate and housing styles
+                            <span style="color: white; margin-right: 10px; font-size: 20px;">✓</span>
+                            <span style="color: rgba(255,255,255,0.95);">We understand local climate and housing styles</span>
                         </li>
                         <li style="margin-bottom: 15px; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 10px;">✓</span>
-                            Strong community relationships and reputation
+                            <span style="color: white; margin-right: 10px; font-size: 20px;">✓</span>
+                            <span style="color: rgba(255,255,255,0.95);">Strong community relationships and reputation</span>
                         </li>
                         <li style="margin-bottom: 15px; display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 10px;">✓</span>
-                            Local references available upon request
+                            <span style="color: white; margin-right: 10px; font-size: 20px;">✓</span>
+                            <span style="color: rgba(255,255,255,0.95);">Local references available upon request</span>
                         </li>
                         <li style="display: flex; align-items: center;">
-                            <span style="color: var(--primary-blue); margin-right: 10px;">✓</span>
-                            Supporting the local Katy economy
+                            <span style="color: white; margin-right: 10px; font-size: 20px;">✓</span>
+                            <span style="color: rgba(255,255,255,0.95);">Supporting the local Katy economy</span>
                         </li>
                     </ul>
                 </div>
