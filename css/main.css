@@ -2201,6 +2201,50 @@ a:hover {
     transform: scale(1.2);
 }
 
+/* Awards & Recognition Section */
+.awards-section {
+    padding: 36px 0;
+    background: var(--bg-light);
+    text-align: center;
+}
+
+.awards-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 0 auto 16px;
+}
+
+.award-badge {
+    transition: transform 0.3s ease;
+}
+
+.award-badge:hover {
+    transform: translateY(-2px);
+}
+
+.award-badge-inner {
+    padding: 0;
+}
+
+.award-icon {
+    width: 100px;
+    height: auto;
+    filter: drop-shadow(0 2px 6px rgba(0, 132, 61, 0.2));
+    transition: filter 0.3s ease;
+}
+
+.award-badge:hover .award-icon {
+    filter: drop-shadow(0 3px 10px rgba(0, 132, 61, 0.35));
+}
+
+.awards-tagline {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
 /* Trusted Brands Section */
 .trusted-brands-section {
     padding: 60px 0;
