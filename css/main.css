@@ -2001,11 +2001,10 @@ a:hover {
 
 .feature-item {
     text-align: center;
-    transition: transform 0.3s ease;
 }
 
 .feature-item:hover {
-    transform: translateY(-6px);
+    /* Static - no hover effect */
 }
 
 .feature-icon {
@@ -2034,12 +2033,11 @@ a:hover {
 }
 
 .feature-item:hover .feature-icon {
-    transform: scale(1.15) rotate(10deg);
-    box-shadow: 0 12px 32px rgba(4, 53, 111, 0.3);
+    /* Static - no hover effect */
 }
 
 .feature-item:hover .feature-icon::after {
-    opacity: 0.3;
+    /* Static - no hover effect */
 }
 
 .feature-icon svg {
@@ -2221,7 +2219,7 @@ a:hover {
 }
 
 .award-badge:hover {
-    transform: translateY(-2px);
+    /* Static - no hover effect */
 }
 
 .award-badge-inner {
@@ -2236,7 +2234,7 @@ a:hover {
 }
 
 .award-badge:hover .award-icon {
-    filter: drop-shadow(0 3px 10px rgba(0, 132, 61, 0.35));
+    /* Static - no hover effect */
 }
 
 .awards-tagline {
@@ -2282,7 +2280,7 @@ a:hover {
 }
 
 .brand-logo-item:hover {
-    background: var(--bg-section);
+    /* Static - no hover effect */
 }
 
 .brand-logo {
