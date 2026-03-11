@@ -181,7 +181,6 @@
     .hero-video-wrapper,
     .hero-video-control,
     .mobile-menu-toggle,
-    .testimonial-controls,
     .footer-social,
     .btn-primary,
     .btn-secondary,
@@ -204,17 +203,26 @@
         color: var(--primary-blue);
     }
     
-    .testimonials-section {
+    .reviews-section {
         background: none;
         color: black;
     }
     
-    .testimonials-section .section-title,
-    .testimonials-section .section-subtitle {
+    .reviews-section .section-title,
+    .reviews-section .section-subtitle,
+    .reviews-summary-card h3,
+    .reviews-feed-heading,
+    .google-mark,
+    .google-review-author,
+    .google-review-time,
+    .google-review-text,
+    .google-reviews-fallback {
         color: var(--primary-blue);
     }
     
-    .testimonial-card {
+    .reviews-summary-card,
+    .reviews-feed-shell,
+    .google-review-item {
         display: block !important;
         background: none;
         border: 1px solid var(--border-color);

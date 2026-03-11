@@ -1576,18 +1576,6 @@ a:hover {
     z-index: -1;
 }
 
-.floating-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.3),
-        0 8px 20px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
-.floating-card:hover::before {
-    opacity: 1;
-}
-
 .card-1 {
     top: 20%;
     right: 5%;
@@ -1832,6 +1820,7 @@ a:hover {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.06);
+    text-decoration: none;
 }
 
 .service-card::before {
@@ -1862,6 +1851,11 @@ a:hover {
 
 .service-card:hover::before {
     transform: scaleX(1);
+}
+
+.service-card:focus-visible {
+    outline: 3px solid rgba(2, 122, 151, 0.35);
+    outline-offset: 4px;
 }
 
 .service-card.featured {
@@ -2058,8 +2052,8 @@ a:hover {
     font-size: 1.05rem;
 }
 
-/* Testimonials Section */
-.testimonials-section {
+/* Google Reviews Section */
+.reviews-section {
     padding: 100px 0;
     background: linear-gradient(135deg, #04356f 0%, #027a97 100%);
     color: white;
@@ -2067,7 +2061,7 @@ a:hover {
     overflow: hidden;
 }
 
-.testimonials-section::before {
+.reviews-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2080,123 +2074,145 @@ a:hover {
     pointer-events: none;
 }
 
-.testimonials-section .section-title,
-.testimonials-section .section-subtitle {
+.reviews-section .section-title,
+.reviews-section .section-subtitle {
     color: white;
     position: relative;
     z-index: 1;
 }
 
-.testimonials-slider {
-    max-width: 900px;
-    margin: 0 auto 40px;
+.reviews-layout {
+    display: grid;
+    gap: 28px;
     position: relative;
-    min-height: 280px;
     z-index: 1;
 }
 
-.testimonial-card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 16px;
-    padding: 40px;
-    display: none;
+.reviews-summary-card,
+.reviews-feed-shell {
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-.testimonial-card.active {
-    display: block;
-    animation: fadeInUp 0.5s ease;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.testimonial-rating {
-    margin-bottom: 24px;
-}
-
-.star {
-    color: #ffd700;
-    font-size: 24px;
-    text-shadow: 0 2px 8px rgba(255, 215, 0, 0.5);
-    margin-right: 4px;
-}
-
-.testimonial-text {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    margin-bottom: 24px;
-    font-style: italic;
-    font-weight: 400;
-}
-
-.testimonial-author {
+.google-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    font-size: 0.9rem;
     font-weight: 700;
-    font-style: normal;
-    font-size: 1.1rem;
-    opacity: 0.95;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
-.testimonial-controls {
+.reviews-summary-card h3 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.reviews-summary-card p {
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    max-width: 38rem;
+}
+
+.reviews-actions {
     display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.btn-review-outline {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
-    position: relative;
-    z-index: 1;
-}
-
-.testimonial-prev,
-.testimonial-next {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(8px);
-    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    padding: 14px 22px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.55);
     color: white;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.testimonial-prev:hover,
-.testimonial-next:hover {
-    background: rgba(255, 255, 255, 0.35);
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+.btn-review-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
-.testimonial-dots {
+.reviews-feed-heading {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.google-reviews-feed {
+    display: grid;
+    gap: 16px;
+}
+
+.google-review-item {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 22px;
+}
+
+.google-review-meta {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
 }
 
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: var(--transition);
+.google-review-author {
+    font-weight: 700;
+    color: white;
 }
 
-.dot.active {
-    background-color: white;
-    transform: scale(1.2);
+.google-review-time {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+}
+
+.google-review-stars {
+    color: #ffd700;
+    letter-spacing: 0.12em;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.google-review-text {
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.google-reviews-fallback {
+    color: rgba(255, 255, 255, 0.78);
+    margin: 16px 0 0;
+    line-height: 1.6;
+}
+
+@media (min-width: 1024px) {
+    .reviews-layout {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        align-items: start;
+    }
 }
 
 /* Awards & Recognition Section */
@@ -2381,12 +2397,6 @@ a:hover {
     text-align: center;
     font-size: 0.95rem;
     transition: transform 0.2s ease;
-}
-
-.area-list li:hover {
-    transform: translateY(-2px);
-    background-color: white;
-    box-shadow: var(--shadow-sm);
 }
 
 .area-note {
@@ -2659,10 +2669,6 @@ a:hover {
     border-radius: 6px;
     text-align: center;
     transition: var(--transition);
-}
-
-.service-area-item:hover {
-    background: rgba(255, 255, 255, 0.2);
 }
 
 /* Main Footer Content */

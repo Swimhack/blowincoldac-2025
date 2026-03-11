@@ -9,10 +9,8 @@
         navMenu: document.querySelector('.nav-menu'),
         heroVideo: document.querySelector('.hero-video'),
         heroVideoControl: document.querySelector('.hero-video-control'),
-        testimonialCards: document.querySelectorAll('.testimonial-card'),
-        testimonialPrev: document.querySelector('.testimonial-prev'),
-        testimonialNext: document.querySelector('.testimonial-next'),
-        testimonialDots: document.querySelectorAll('.dot'),
+        googleReviewsFeed: document.querySelector('[data-google-reviews-feed]'),
+        googleReviewsFallback: document.querySelector('[data-google-reviews-fallback]'),
         header: document.querySelector('.main-header'),
         dropdownMenus: document.querySelectorAll('.has-dropdown'),
         phoneLinks: document.querySelectorAll('a[href^="tel:"]'),
@@ -24,7 +22,6 @@
     };
 
     // State
-    let currentTestimonial = 0;
     let isVideoPlaying = true;
     let lastScrollTop = 0;
 
@@ -32,7 +29,7 @@
     function init() {
         setupMobileMenu();
         setupVideoControls();
-        setupTestimonials();
+        setupGoogleReviews();
         setupSmoothScroll();
         setupHeaderScroll();
         setupDropdownMenus();
@@ -212,66 +209,88 @@
         });
     }
 
-    // Testimonials Slider
-    function setupTestimonials() {
-        if (!elements.testimonialCards.length) return;
+    // Google Reviews Feed
+    function setupGoogleReviews() {
+        if (!elements.googleReviewsFeed) return;
 
-        function showTestimonial(index) {
-            elements.testimonialCards.forEach((card, i) => {
-                card.classList.toggle('active', i === index);
+        const endpoint =
+            elements.googleReviewsFeed.dataset.googleReviewsEndpoint ||
+            window.BLOWIN_COLD_GOOGLE_REVIEWS_ENDPOINT ||
+            '';
+
+        if (!endpoint) return;
+
+        fetch(endpoint)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Review feed request failed: ${response.status}`);
+                }
+
+                return response.json();
+            })
+            .then(payload => {
+                const reviews = normalizeGoogleReviews(payload);
+
+                if (!reviews.length) return;
+
+                elements.googleReviewsFeed.innerHTML = reviews.slice(0, 3).map(review => `
+                    <article class="google-review-item">
+                        <div class="google-review-meta">
+                            <div class="google-review-author">${escapeHtml(review.author)}</div>
+                            <div class="google-review-time">${escapeHtml(review.relativeTime)}</div>
+                        </div>
+                        <div class="google-review-stars" aria-label="${review.rating} out of 5 stars">${'★'.repeat(review.rating)}</div>
+                        <p class="google-review-text">${escapeHtml(review.text)}</p>
+                    </article>
+                `).join('');
+
+                if (elements.googleReviewsFallback) {
+                    elements.googleReviewsFallback.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.warn('Google review feed unavailable:', error);
             });
-            
-            elements.testimonialDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            
-            currentTestimonial = index;
-        }
+    }
 
-        // Previous button
-        if (elements.testimonialPrev) {
-            elements.testimonialPrev.addEventListener('click', function() {
-                currentTestimonial = currentTestimonial === 0 
-                    ? elements.testimonialCards.length - 1 
-                    : currentTestimonial - 1;
-                showTestimonial(currentTestimonial);
-            });
-        }
+    function normalizeGoogleReviews(payload) {
+        const source = Array.isArray(payload)
+            ? payload
+            : Array.isArray(payload?.reviews)
+                ? payload.reviews
+                : Array.isArray(payload?.data)
+                    ? payload.data
+                    : [];
 
-        // Next button
-        if (elements.testimonialNext) {
-            elements.testimonialNext.addEventListener('click', function() {
-                currentTestimonial = (currentTestimonial + 1) % elements.testimonialCards.length;
-                showTestimonial(currentTestimonial);
-            });
-        }
-
-        // Dot navigation
-        elements.testimonialDots.forEach((dot, index) => {
-            dot.addEventListener('click', function() {
-                showTestimonial(index);
-            });
-        });
-
-        // Auto-rotate testimonials
-        setInterval(function() {
-            if (!document.hidden && !document.querySelector('.testimonials-section:hover')) {
-                currentTestimonial = (currentTestimonial + 1) % elements.testimonialCards.length;
-                showTestimonial(currentTestimonial);
-            }
-        }, 5000);
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            const testimonialSection = document.querySelector('.testimonials-section');
-            if (!testimonialSection || !isInViewport(testimonialSection)) return;
-
-            if (e.key === 'ArrowLeft' && elements.testimonialPrev) {
-                elements.testimonialPrev.click();
-            } else if (e.key === 'ArrowRight' && elements.testimonialNext) {
-                elements.testimonialNext.click();
-            }
-        });
+        return source
+            .map((review) => ({
+                author:
+                    review.author_name ||
+                    review.author?.name ||
+                    review.author ||
+                    review.reviewer ||
+                    'Google reviewer',
+                rating: Math.max(
+                    1,
+                    Math.min(
+                        5,
+                        Math.round(Number(review.rating || review.review?.rating) || 5)
+                    )
+                ),
+                text:
+                    review.text ||
+                    review.review?.text ||
+                    review.comment ||
+                    review.snippet ||
+                    '',
+                relativeTime:
+                    review.relative_time_description ||
+                    review.relativeTime ||
+                    review.date ||
+                    review.relative_time ||
+                    'Recent review'
+            }))
+            .filter((review) => review.text);
     }
 
     // Smooth Scroll
@@ -474,6 +493,15 @@
                 setTimeout(() => inThrottle = false, limit);
             }
         };
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
     }
 
     // Form Validation (placeholder for contact form)
@@ -705,7 +733,7 @@
         const preloadLink = document.createElement('link');
         preloadLink.rel = 'preload';
         preloadLink.as = 'image';
-        preloadLink.href = '/images/hero-bg.webp';
+        preloadLink.href = '/images/Smiling technician at the doorstep.png';
         document.head.appendChild(preloadLink);
         
         // Enable smooth scrolling with CSS
