@@ -2208,10 +2208,78 @@ a:hover {
     line-height: 1.6;
 }
 
+.facebook-recommendations {
+    margin-top: 56px;
+    position: relative;
+    z-index: 1;
+}
+
+.facebook-recommendations-header {
+    margin-bottom: 32px;
+}
+
+.facebook-recommendations-header .section-title,
+.facebook-recommendations-header .section-subtitle {
+    color: white;
+}
+
+.facebook-reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+
+.facebook-review-card {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+    padding: 26px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.facebook-review-meta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.facebook-review-meta h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0 0 4px;
+}
+
+.facebook-review-meta p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.facebook-review-meta span {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.facebook-review-text {
+    color: rgba(255, 255, 255, 0.94);
+    line-height: 1.8;
+    margin: 0;
+    white-space: pre-line;
+}
+
 @media (min-width: 1024px) {
     .reviews-layout {
         grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
         align-items: start;
+    }
+
+    .facebook-reviews-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 

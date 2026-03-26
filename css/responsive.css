@@ -228,6 +228,22 @@
         border: 1px solid var(--border-color);
         margin-bottom: 20px;
     }
+
+    .facebook-recommendations-header .section-title,
+    .facebook-recommendations-header .section-subtitle,
+    .facebook-review-meta h4,
+    .facebook-review-meta p,
+    .facebook-review-meta span,
+    .facebook-review-text {
+        color: var(--primary-blue);
+    }
+
+    .facebook-review-card {
+        display: block !important;
+        background: none;
+        border: 1px solid var(--border-color);
+        margin-bottom: 20px;
+    }
     
     .cta-section {
         background: none;
