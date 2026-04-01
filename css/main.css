@@ -284,7 +284,7 @@ a:hover {
     box-shadow: var(--shadow-md);
 }
 
-.main-header.scrolled .contact-bar {
+.main-header.scrolled .header-top {
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
@@ -498,7 +498,7 @@ a:hover {
 }
 
 .logo img {
-    height: 120px;
+    height: 80px;
     width: auto;
     object-fit: contain;
     transition: transform 0.3s ease, filter 0.3s ease;
@@ -515,7 +515,7 @@ a:hover {
     }
 
     .logo img {
-        height: 120px;
+        height: 80px;
     }
 }
 
@@ -525,7 +525,7 @@ a:hover {
     }
 
     .logo img {
-        height: 120px;
+        height: 80px;
     }
 }
 
@@ -1821,6 +1821,9 @@ a:hover {
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.06);
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .service-card::before {
@@ -1881,19 +1884,21 @@ a:hover {
     height: 150px;
     background: none;
     border-radius: 0;
+    margin: 0 auto;
 }
 
 .service-icon-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
 }
 
 .service-card:hover .service-icon-photo {
-    transform: scale(1.08);
-    background: none;
-    box-shadow: none;
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(4, 53, 111, 0.18);
 }
 
 .service-card:hover .service-icon {
@@ -1931,6 +1936,10 @@ a:hover {
     color: var(--text-dark);
     font-weight: 700;
     font-size: 1.5rem;
+    min-height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-card.featured .service-title {
@@ -1942,6 +1951,7 @@ a:hover {
     margin-bottom: 24px;
     line-height: 1.7;
     font-size: 1.05rem;
+    flex-grow: 1;
 }
 
 .service-card.featured .service-description {
@@ -1953,9 +1963,11 @@ a:hover {
     font-weight: 700;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     font-size: 1.05rem;
     transition: all 0.3s ease;
+    margin-top: auto;
 }
 
 .service-card.featured .service-link {
@@ -2090,12 +2102,12 @@ a:hover {
 
 .reviews-summary-card,
 .reviews-feed-shell {
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.14) !important;
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 40px;
+    padding: 32px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
