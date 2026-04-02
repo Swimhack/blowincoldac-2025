@@ -844,6 +844,7 @@ a:hover {
         display: flex !important;
         position: relative !important;
         flex-direction: row;
+        transform: none !important;
         background: none;
         box-shadow: none;
         padding: 0;
