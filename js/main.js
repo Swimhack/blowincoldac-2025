@@ -107,11 +107,11 @@
             
             // Add slide animation with better performance
             if (!isActive) {
-                elements.navMenu.style.transform = 'translateX(0)';
-                elements.navMenu.style.opacity = '1';
+                ;
+                ;
             } else {
-                elements.navMenu.style.transform = 'translateX(-100%)';
-                elements.navMenu.style.opacity = '0';
+                ;
+                ;
             }
         });
 

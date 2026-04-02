@@ -1,0 +1,25 @@
+blowincoldac.com is a newly acquired website redesign client of Strickland Technology, we want to modernize the website UI, keeping some elements like the oversized hero image ( full screen with header bar, navigation, static logo linked to homepage), a video hero is ideal, ( we can aquire video)
+
+i want vanilla html, css, js as the stack, php ( if any server side)
+
+deployment will be to blowincoldac.fly.dev
+
+use mcp playwright for all validations and test sprite to test thoroughly all functions before saying you are complete.
+
+design inspiration:
+https://acofaz.net
+
+use our logo and contact data:
+
+1023 Park Meadow Dr
+Katy, TX 77450
+
+Phone
+281-647-2653
+
+Email
+blowincoldac@yahoo.com
+
+
+Keeping Katy Cool Since 2004
+

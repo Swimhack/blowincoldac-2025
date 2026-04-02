@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Professional HVAC services in Katy, TX. AC repair, installation, and maintenance. Amana, American Standard, Goodman, and RUUD specialists.">
+    <title>HVAC Services - Blowin' Cold AC | Katy, TX</title>
+    <link rel="stylesheet" href="/css/main.css?v=20251030-1">
+    <link rel="stylesheet" href="/css/responsive.css?v=20251030-1">
+    <style>
+        .service-detail-image-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .service-detail-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.12);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .service-detail-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+
+        .service-detail-image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Pure left justification */
+        .service-content {
+            text-align: left;
+            width: 100%;
+        }
+
+        .service-list {
+            text-align: left;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .service-list li {
+            margin-bottom: 10px;
+            list-style-position: outside;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-buttons">
+                    <a href="tel:281-647-2653" class="header-btn header-btn-phone">
+                        <svg class="icon-phone" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        Call Now
+                    </a>
+                    <a href="contact.html#schedule" class="header-btn header-btn-schedule">Schedule Service</a>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <!-- Logo -->
+                    <div class="logo-wrapper">
+                        <a href="index.html" class="logo" aria-label="Blowin' Cold AC Homepage">
+                            <img src="/images/logo-transparent.png" alt="Blowin' Cold AC Logo"
+                                style="height: 80px; width: auto;" id="logo-img">
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation Menu -->
+                    <ul class="nav-menu" role="menubar">
+                        <li role="menuitem"><a href="index.html" class="nav-link">Home</a></li>
+                        <li role="menuitem" class="has-dropdown">
+                            <a href="services.html" class="nav-link active" aria-haspopup="true"
+                                aria-expanded="false">Services</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="menuitem"><a href="services.html#repair">AC Repair</a></li>
+                                <li role="menuitem"><a href="services.html#installation">AC Installation</a></li>
+                                <li role="menuitem"><a href="services.html#maintenance">Maintenance Plans</a></li>
+                            </ul>
+                        </li>
+                        <li role="menuitem"><a href="about.html" class="nav-link">About Us</a></li>
+                        <li role="menuitem"><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section id="residential" class="page-hero services-hero">
+        <div class="container">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Our HVAC Services</h1>
+            <p style="font-size: 1.25rem; opacity: 0.9;">Professional heating and cooling solutions
+                for your home and business</p>
+        </div>
+    </section>
+
+    <!-- AC Repair Section -->
+    <section id="repair" class="services-section" style="padding: 80px 0;">
+        <div class="container">
+            <div class="service-detail"
+                style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start;">
+                <div style="text-align: center;">
+
+                </div>
+                <div class="service-content" style="max-width: 900px; text-align: left;">
+                    <h2>AC Repair Services</h2>
+                    <p class="service-intro">When your air conditioning system breaks down, you need fast, reliable
+                        repair service. Our experienced technicians diagnose and fix AC problems quickly to restore
+                        your
+                        comfort.</p>
+
+                    <h3>Common AC Problems We Fix:</h3>
+                    <ul class="service-list">
+                        <li>System not cooling properly</li>
+                        <li>AC unit won't turn on</li>
+                        <li>Strange noises or odors</li>
+                        <li>Frozen evaporator coils</li>
+                        <li>Refrigerant leaks</li>
+                        <li>Electrical issues and wiring problems</li>
+                        <li>Thermostat malfunctions</li>
+                        <li>Dirty or clogged air filters</li>
+                    </ul>
+
+                    <h3 style="margin-top: 30px;">Brands We Service:</h3>
+                    <p>We specialize in Amana, American Standard, Goodman, and RUUD systems, but service all major
+                        HVAC
+                        brands including Trane, Carrier, Lennox, Rheem, and more.</p>
+
+                    <div
+                        style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal)); color: white; border-radius: 10px; text-align: center;">
+                        <p style="font-size: 1.2rem; font-weight: 600; margin: 0;">✓ We provide warranty service on
+                            all
+                            equipment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div
+        style="height: 2px; background: linear-gradient(90deg, transparent, var(--primary-blue), transparent); margin: 0 auto; max-width: 80%;">
+    </div>
+
+    <!-- AC Installation Section -->
+    <section id="installation" class="services-section" style="background-color: var(--bg-section); padding: 80px 0;">
+        <div class="container">
+            <div class="service-detail"
+                style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start;">
+                <div style="text-align: center;">
+                    <div class="service-detail-image-wrapper">
+                        <img src="/images/cat_images/ac_repair_large.jpg"
+                            alt="AC Repair Services - Professional HVAC Technician">
+                    </div>
+                </div>
+                <div class="service-content" style="max-width: 900px; text-align: left;">
+                    <h2>AC Installation Services</h2>
+                    <p class="service-intro">Upgrade to a new, energy-efficient cooling system including mini-split
+                        systems. We ONLY install Amana, American Standard, Goodman, and RUUD units. We'll help you
+                        choose the right system for your space and budget, then provide professional installation.</p>
+
+                    <h3>Installation Services Include:</h3>
+                    <ul class="service-list">
+                        <li>Free in-home consultation and estimate</li>
+                        <li>System sizing and load calculations</li>
+                        <li>Energy efficiency recommendations</li>
+                        <li>Central air conditioning systems</li>
+                        <li>Mini-split ductless systems</li>
+                        <li>Professional installation by certified technicians</li>
+                        <li>Ductwork inspection and modifications</li>
+                        <li>Electrical connections and permits</li>
+                        <li>System testing and commissioning</li>
+                        <li>Warranty registration and service plans</li>
+                    </ul>
+
+                    <h3 style="margin-top: 30px;">Why Choose New Installation:</h3>
+                    <div class="benefits-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+                        <div class="benefit-item">
+                            <h4>Energy Savings</h4>
+                            <p>New systems can reduce energy costs by up to 40%</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h4>Improved Comfort</h4>
+                            <p>Better temperature control and air quality</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h4>Reliability</h4>
+                            <p>Fewer breakdowns and repair costs</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h4>Warranties</h4>
+                            <p>Comprehensive manufacturer and labor warranties</p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal)); color: white; border-radius: 10px; text-align: center;">
+                        <p style="font-size: 1.2rem; font-weight: 600; margin: 0;">✓ We provide warranty service on all
+                            equipment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div
+        style="height: 2px; background: linear-gradient(90deg, transparent, var(--primary-blue), transparent); margin: 0 auto; max-width: 80%;">
+    </div>
+
+    <!-- Maintenance Section -->
+    <section id="maintenance" class="services-section" style="padding: 80px 0;">
+        <div class="container">
+            <div class="service-detail"
+                style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start;">
+                <div style="text-align: center;">
+                    <div class="service-detail-image-wrapper">
+                        <img src="/images/cat_images/maintenance_plans_large.jpg"
+                            alt="Maintenance Plans - HVAC Service Van">
+                    </div>
+                </div>
+                <div class="service-content" style="max-width: 900px; text-align: left;">
+                    <h2>Maintenance Plans</h2>
+                    <p class="service-intro">Keep your Amana, American Standard, Goodman, RUUD, or any other HVAC system
+                        running at peak performance with our comprehensive maintenance plans. Regular service prevents
+                        breakdowns and extends equipment life.</p>
+
+                    <h3>Maintenance Plan Includes:</h3>
+                    <ul class="service-list">
+                        <li>Bi-annual system inspections (spring and fall)</li>
+                        <li>Filter replacement and cleaning</li>
+                        <li>Coil cleaning and inspection</li>
+                        <li>Refrigerant level checks</li>
+                        <li>Electrical connection inspection</li>
+                        <li>Thermostat calibration</li>
+                        <li>Ductwork inspection</li>
+                        <li>Priority scheduling for repairs</li>
+                        <li>Discounts on parts and labor</li>
+                        <li>Extended warranty coverage</li>
+                    </ul>
+
+                    <h3 style="margin-top: 30px;">Maintenance Plan Benefits:</h3>
+                    <div class="benefits-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
+                        <div class="benefit-item">
+                            <h4>Lower Energy Bills</h4>
+                            <p>Maintained systems run 15-20% more efficiently</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h4>Fewer Repairs</h4>
+                            <p>Preventive care reduces unexpected breakdowns by 95%</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h4>Longer Equipment Life</h4>
+                            <p>Regular maintenance doubles system lifespan</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h4>Priority Service</h4>
+                            <p>Members get first priority for service calls</p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal)); color: white; border-radius: 10px; text-align: center;">
+                        <p style="font-size: 1.2rem; font-weight: 600; margin: 0;">✓ We provide warranty service on all
+                            equipment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div
+        style="height: 2px; background: linear-gradient(90deg, transparent, var(--primary-blue), transparent); margin: 0 auto; max-width: 80%;">
+    </div>
+
+    <!-- Warranty Service Section -->
+    <section id="warranty" class="services-section" style="background-color: var(--bg-section); padding: 80px 0;">
+        <div class="container">
+            <div class="service-detail"
+                style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start;">
+                <div style="text-align: center;">
+                    <div class="service-detail-image-wrapper">
+                        <img src="/images/cat_images/warranty_service_large.jpg"
+                            alt="Warranty Service - HVAC technician performing warranty work">
+                    </div>
+                </div>
+                <div class="service-content" style="max-width: 900px; text-align: left;">
+                    <h2>Warranty Service</h2>
+                    <p class="service-intro">At Blowin' Cold AC, we specialize in exceptional warranty service for all
+                        major residential HVAC brands. Our experienced technicians handle every detail—from diagnosing
+                        the issue to filing all required manufacturer paperwork—so you don't have to lift a finger. That
+                        means less stress, faster resolutions, and more time enjoying what matters most: a comfortable,
+                        worry-free home.</p>
+
+                    <h3>Our Warranty Service Includes:</h3>
+                    <ul class="service-list">
+                        <li>Complete diagnosis and documentation</li>
+                        <li>Manufacturer warranty claim filing</li>
+                        <li>All required paperwork handled for you</li>
+                        <li>Direct communication with manufacturers</li>
+                        <li>Warranty parts procurement and installation</li>
+                        <li>Follow-up to ensure claim resolution</li>
+                    </ul>
+
+                    <h3 id="brands" style="margin-top: 30px;">Brands We Handle Warranty Service For:</h3>
+                    <p>We process warranty claims for Amana, American Standard, Goodman, RUUD, Trane, Carrier, Lennox,
+                        Rheem, and all other major HVAC manufacturers.</p>
+
+                    <div
+                        style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal)); color: white; border-radius: 10px; text-align: center;">
+                        <p style="font-size: 1.2rem; font-weight: 600; margin: 0;">✓ We handle all the paperwork so you
+                            don't have to</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Blowin' Cold AC</h3>
+                    <p>Professional HVAC services in Katy, TX since 2011. Licensed, insured, and committed to your
+                        comfort.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#repair">AC Repair</a></li>
+                        <li><a href="#installation">AC Installation</a></li>
+                        <li><a href="#maintenance">Maintenance Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact">
+                        <p>
+                            <strong>Blowin' Cold AC</strong><br>
+                            Serving Katy, TX & Surrounding Areas
+                        </p>
+                        <p>
+                            <strong>Phone:</strong> <a href="tel:281-647-2653">281-647-COLD (2653)</a><br>
+                            <strong>Email:</strong> <a href="mailto:blowincoldac@yahoo.com">blowincoldac@yahoo.com</a>
+                        </p>
+                        <p>
+                            <strong>Hours:</strong><br>
+                            Regular Hours: Mon-Sat 7AM-8PM<br>
+                            <strong>Licensed & Insured</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2026</span> Blowin' Cold AC. All rights reserved.</p>
+                <p class="footer-credit">Website by <a href="http://www.stricklandtechnology.net" target="blank"
+                        title="Web Designer Houston">Strickland Technology</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cache-busting for fresh loads
+        document.addEventListener('DOMContentLoaded', function () {
+            const logoImg = document.getElementById('logo-img');
+            if (logoImg) {
+                const timestamp = new Date().getTime();
+                logoImg.src = '/images/logo-transparent.png?v=' + timestamp;
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

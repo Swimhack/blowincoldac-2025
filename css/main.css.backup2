@@ -670,7 +670,9 @@ a:hover {
     visibility: visible;
     transform: translateX(0);
     pointer-events: auto;
-    }
+}
+    display: flex;
+}
 
 .nav-menu li {
     width: 100%;
@@ -837,45 +839,9 @@ a:hover {
         display: none;
     }
 
-/* Show desktop menu */
-    .nav-menu {
-        opacity: 1 !important;
-        visibility: visible !important;
-        display: flex !important;
-        position: relative !important;
-        flex-direction: row;
-        background: none;
-        box-shadow: none;
-        padding: 0;
-        max-height: none;
-        overflow: visible;
-        gap: 15px;
-        align-items: center;
-        flex: 1;
-        justify-content: flex-end;
-        margin-left: auto;
-        width: auto;
-        top: auto;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        max-width: none;
-        z-index: auto;
-    }
-    .nav-menu li {
-        width: auto;
-        margin: 0;
-        border-bottom: none;
-    }
-    .nav-menu a {
-        padding: 10px 16px;
-        border: none;
-        background: none !important;
-        position: relative;
-        min-height: auto;
-        font-size: 0.95rem;
-        border-radius: 6px;
-    }
+/* Show desktop menu */    .nav-menu {        opacity: 1 !important;        visibility: visible !important;        display: flex !important;        position: relative !important;        flex-direction: row;        background: none;        box-shadow: none;        padding: 0;        max-height: none;        overflow: visible;        gap: 15px;        align-items: center;        flex: 1;        justify-content: flex-end;        margin-left: auto;        width: auto;        top: auto;        left: auto;        right: auto;        bottom: auto;        max-width: none;        z-index: auto;    }
+    .nav-menu li {        width: auto;        margin: 0;        border-bottom: none;    }
+    .nav-menu a {        padding: 10px 16px;        border: none;        background: none !important;        position: relative;        min-height: auto;        font-size: 0.95rem;        border-radius: 6px;    }
     .nav-menu a:hover {
         background-color: rgba(4, 53, 111, 0.08) !important;
     }
