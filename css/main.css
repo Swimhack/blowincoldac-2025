@@ -843,6 +843,7 @@ a:hover {
         visibility: visible !important;
         display: flex !important;
         position: relative !important;
+        pointer-events: auto !important;
         flex-direction: row;
         transform: none !important;
         background: none;
